@@ -1,0 +1,104 @@
+const unofficial = require("../templates/unofficial_license").template;
+const official = require("../templates/official_license").template;
+
+/**
+ *
+ * @param {LicenseModel} details
+ * @returns {Object} document
+ */
+function fillup(details) {
+  return {
+    background: function(page) {
+      return [{ image: "official", width: 600 }];
+    },
+    content: [
+      { text: "\n\n\n\n", fontSize: 11 },
+      {
+        layout: "noBorders",
+        table: {
+          widths: [45, 175, "*"],
+          heights: [210, 80, 40, 80, 4],
+          body: [
+            ["", "", ""],
+            [
+              {
+                text: details.general_info.primary_activity,
+                fontSize: 28,
+                colSpan: 3,
+                alignment: "center"
+              },
+              "",
+              ""
+            ],
+            [
+              {
+                text: details.estab_details.establishment_name,
+                fontSize: 28,
+                colSpan: 3,
+                alignment: "center"
+              },
+              "",
+              ""
+            ],
+            [
+              {
+                text: details.addresses.office.address,
+                fontSize: 14,
+                colSpan: 3,
+                alignment: "center"
+              },
+              "",
+              ""
+            ],
+            [
+              { text: "" },
+              { qr: "Testing...", fit: 70, alignment: "left", rowSpan: 4 },
+              {
+                text: details.estab_details.establishment_owner,
+                fontSize: 10,
+                alignment: "left"
+              }
+            ],
+            [
+              "",
+              "",
+              { text: details.license_no, fontSize: 10, alignment: "left" }
+            ],
+            [
+              "",
+              "",
+              {
+                text: details.application_type,
+                fontSize: 10,
+                alignment: "left"
+              }
+            ],
+            [
+              "",
+              "",
+              { text: details.license_expiry, fontSize: 10, alignment: "left" }
+            ]
+          ]
+        }
+      },
+      { text: "\n\n", fontSize: 9 },
+      {
+        alignment: "center",
+        columns: [
+          {
+            text: "90 days",
+            fontSize: 12
+          }
+        ]
+      }
+    ],
+    images: {
+      unofficial: unofficial,
+      official: official
+    }
+  };
+}
+
+module.exports = {
+  fillup
+};

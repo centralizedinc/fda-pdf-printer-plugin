@@ -1,0 +1,19 @@
+{
+  "name": "fda-pdf-printer-plugin",
+  "version": "1.0.0",
+  "description": "PDF Printer for FDA Portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/centralizedinc/fda-pdf-printer-plugin.git"
+  },
+  "author": "abalita@centralizedinc.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/centralizedinc/fda-pdf-printer-plugin/issues"
+  },
+  "homepage": "https://github.com/centralizedinc/fda-pdf-printer-plugin#readme"
+}
