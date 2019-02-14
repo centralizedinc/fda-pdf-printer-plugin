@@ -1,10 +1,11 @@
 {
   "name": "fda-pdf-printer-plugin",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "PDF Printer for FDA Portal",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && npm version patch && cp package.json ./dist && cd dist && npm publish"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/centralizedinc/fda-pdf-printer-plugin/issues"
   },
-  "homepage": "https://github.com/centralizedinc/fda-pdf-printer-plugin#readme"
+  "homepage": "https://github.com/centralizedinc/fda-pdf-printer-plugin#readme",
+  "dependencies": {
+    "pdfmake": "^0.1.51"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  }
 }

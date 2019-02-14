@@ -1,7 +1,7 @@
 
 
-import License from "../printers/license"
-import Payment from "../printers/payment"
+import License from "./printers/license"
+import Payment from "./printers/payment"
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
