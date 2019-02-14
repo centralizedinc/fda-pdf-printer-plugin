@@ -2,11 +2,11 @@
   "name": "fda-pdf-printer-plugin",
   "version": "1.0.10",
   "description": "PDF Printer for FDA Portal",
-  "main": "app.js",
+  "main": "./src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-prod": "rm -r ./dist && webpack && npm version patch && cp package.json ./dist && cd dist && npm publish",
-    "publish": "npm version patch && npm publish"
+    "push": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
