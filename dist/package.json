@@ -5,8 +5,7 @@
   "main": "app.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-prod": "rm -r ./dist && webpack && npm version patch && cp package.json ./dist && cd dist && npm publish",
-    "publish": "npm version patch && npm publish"
+    "build": "rm -r ./dist && webpack && npm version patch && cp package.json ./dist && cd dist && npm publish"
   },
   "repository": {
     "type": "git",
