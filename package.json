@@ -1,6 +1,6 @@
 {
   "name": "fda-pdf-printer-plugin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "PDF Printer for FDA Portal",
   "main": "app.js",
   "scripts": {
