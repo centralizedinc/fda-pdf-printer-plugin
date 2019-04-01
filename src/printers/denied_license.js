@@ -27,28 +27,28 @@ function getContent(details) {
         layout: "noBorders",
         table: {
             widths: [23, '*'],
-            heights: [183, 31, 31, 13, 45, 44, 113],
+            heights: [182, 31, 31, 13, 45, 44, 113],
             body: [
-                ["", ""], //183
+                ["", ""], //182
                 ["", { //31
                     text: details.date_created,
                     bold: true,
-                    fontSize: 11,
+                    fontSize: 12,
                 }],
                 ["", { //31
                     text: details.name,
                     bold: true,
-                    fontSize: 11,
+                    fontSize: 12,
                 }],
                 ["", { //13
                     text: details.establishment_name,
                     bold: true,
-                    fontSize: 11,
+                    fontSize: 12,
                 }],
                 ["", { //45
                     text: details.establishment_address,
                     bold: true,
-                    fontSize: 11,
+                    fontSize: 12,
                 }],
                 ["", { //44
                     layout: "noBorders",
