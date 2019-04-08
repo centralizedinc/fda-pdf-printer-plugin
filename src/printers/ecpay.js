@@ -9,7 +9,7 @@ function fillup(details) {
     console.log('get content ###### :', content);
     return {
         content: content,
-        pageSize: {width: 500, height: 390}
+        pageSize: {width: 520, height: 390}
     };
 }
 /**
@@ -17,6 +17,7 @@ function fillup(details) {
  * @param {Array|Object} forms 
  */
 function getContent(details) {
+    console.log("details data: " + JSON.stringify(details))
     var content = [{
         layout: "noBorders",
         table: {
@@ -25,42 +26,26 @@ function getContent(details) {
             body: [
                 [
                     {
-                        layout: "noBorders",
-        table: {
-            widths: ["*"],
-            heights: ["*"],
-            body: [
-                [
-                    {
-                        image: header.header,
-                        // 'margin: [left, top, right, bottom]'
-                        alignment: 'center'
-                    }
-                ],
-                // Reference number
-                [
-                    {
-                        text: 'Your Reference Number',
-                        alignment: "center"
-                    }
-                ],
-                [
-                    {
-                        text: details.reference_number,
-                        alignment: "center",
-                        style: "header"
-                    }
-                ]
-            ]
-        }
+                        image: header.header
                     }
                 ],
                 [                {
                     layout: "noBorders",
                     table:{
-                        widths:[50, "*", "*",50],
+                        widths:[75, "*", "*",50],
                         heights: ['*'],
                         body: [
+                            ["",
+                {
+                    text: 'Your Reference Number:',
+                    alignment: 'left'
+                },
+                {
+                    text: details.reference_number,
+                    alignment: 'left',
+                    style: "header"
+                },""
+                            ],
                             ["",{
                                 text: 'Status:'
                             },
@@ -81,7 +66,7 @@ function getContent(details) {
                             text: 'Amount:'
                         },
                         {
-                            text: details.amount,
+                            text: "₱"+details.amount,
                             alignment: "left"
                         },""
                     ],
@@ -89,7 +74,7 @@ function getContent(details) {
                             text: 'Conveniece Fee: '
                         },
                         {
-                            text: details.con_fee,
+                            text: "₱"+details.con_fee,
                             alignment: "left"
                         },""
                     ],
@@ -97,15 +82,14 @@ function getContent(details) {
                             text: 'Total Amount Due: '
                         },
                         {
-                            text: details.total,
+                            text: "₱"+details.total,
                             alignment: "left"
                         },""
                     ],
-                    [{
+                    ["",{
                         qr: "Ref. No.: " + details.reference_number,
-                        fit: 70,
-                        alignment: "center"
-                      }
+                        fit: 70
+                      },"",""
                     ]
                         ]
                     }
