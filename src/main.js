@@ -1,6 +1,7 @@
 import License from "./printers/license"
 import DeniedLicense from "./printers/denied_license"
 import Payment from "./printers/payment"
+import Ecpay from "./printers/ecpay"
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -9,7 +10,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const printers = {
     LIC: License,
     DENIED_LIC: DeniedLicense,
-    PAY: Payment
+    PAY: Payment,
+    ECPAY: Ecpay
 }
 
 export default {
