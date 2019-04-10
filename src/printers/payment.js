@@ -297,7 +297,7 @@ function getContent(forms) {
                             text: 'Application Fee:'
                         },
                         {
-                            text: details.paymentDetails.fee,
+                            text: "₱"+details.paymentDetails.fee,
                             alignment: "center"
                         },
                         ""
@@ -306,7 +306,7 @@ function getContent(forms) {
                             text: '# of years applied:'
                         },
                         {
-                            text: details.paymentDetails.yearsApplied,
+                            text: "₱"+details.paymentDetails.yearsApplied,
                             alignment: "center"
                         },
                         ""
@@ -315,7 +315,7 @@ function getContent(forms) {
                             text: 'Surcharge: '
                         },
                         {
-                            text: details.paymentDetails.surcharge,
+                            text: "₱"+details.paymentDetails.surcharge,
                             alignment: "center"
                         },
                         ""
@@ -324,7 +324,7 @@ function getContent(forms) {
                             text: 'Legal Research Fund (LRF):'
                         },
                         {
-                            text: details.paymentDetails.lrf,
+                            text: "₱"+details.paymentDetails.lrf,
                             alignment: "center"
                         },
                         ""
@@ -333,7 +333,7 @@ function getContent(forms) {
                             text: 'Total Payment Due:'
                         },
                         {
-                            text: details.paymentDetails.total,
+                            text: "₱"+details.paymentDetails.total,
                             alignment: "center"
                         },
                         ""

@@ -57,16 +57,16 @@ function getContent(details) {
                             widths: ['*'],
                             heights: ['*'],
                             body: [
-                                [""],
-                                [""],
-                                // [{
-                                //     text: "Republic of the Philippines ",
-                                //     alignment: "center"
-                                // }],
-                                // [{
-                                //     text: "Department of Health ",
-                                //     alignment: "center"
-                                // }],
+                                // [""],
+                                // [""],
+                                [{
+                                    text: "Republic of the Philippines ",
+                                    alignment: "center"
+                                }],
+                                [{
+                                    text: "Department of Health ",
+                                    alignment: "center"
+                                }],
                                 [{
                                     text: "Food And Drug Administration ",
                                     alignment: "center"
@@ -142,7 +142,7 @@ function getContent(details) {
                             text: 'Application Fee:'
                         },
                         {
-                            text: details.fee,
+                            text: "₱"+details.fee,
                             alignment: "left"
                         },""
                     ],
@@ -150,7 +150,7 @@ function getContent(details) {
                             text: 'Legal Research Fund (LRF):'
                         },
                         {
-                            text: details.lrf,
+                            text: "₱"+details.lrf,
                             alignment: "left"
                         },""
                     ],
@@ -158,7 +158,7 @@ function getContent(details) {
                             text: 'Penalty: '
                         },
                         {
-                            text: details.penalty,
+                            text: "₱"+details.penalty,
                             alignment: "left"
                         },""
                     ],
@@ -166,7 +166,7 @@ function getContent(details) {
                             text: 'Total: '
                         },
                         {
-                            text: details.total,
+                            text: "₱"+details.total,
                             alignment: "left"
                         },""
                     ],
@@ -174,7 +174,7 @@ function getContent(details) {
                             text: 'Amount:'
                         },
                         {
-                            text: details.amount,
+                            text: "₱"+details.amount,
                             alignment: "left"
                         },""
                     ],
@@ -182,7 +182,7 @@ function getContent(details) {
                             text: 'Remaining Balance:'
                         },
                         {
-                            text: details.remaining_balance,
+                            text: "₱"+details.remaining_balance,
                             alignment: "left"
                         },""
                     ]
