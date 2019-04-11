@@ -59,5 +59,26 @@ export default {
             })
 
         }
+
+        /**
+         * @description direct file download
+         * @param {*} details 
+         * @param {*} type 
+         * @returns {Promise}
+         */
+        Vue.prototype.$upload = (details, type, filename) => {
+            return new Promise((resolve, reject) => {
+                var printer = printers[type]
+                var document = printer.fillup(details);
+                pdfMake.createPdf(document).getBlob(blob, (err) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(blob)
+                    }
+                });
+            })
+
+        }
     }
 }
