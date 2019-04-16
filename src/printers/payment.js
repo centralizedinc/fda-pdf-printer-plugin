@@ -190,7 +190,7 @@ function getContent(forms) {
                             text: 'Office Address'
                         },
                         {
-                            text: details.formDetails.addresses.office.address + " " + details.formDetails.addresses.office.city + " " + details.formDetails.addresses.office.province + " " + details.formDetails.addresses.office.region + " " + details.formDetails.addresses.office.zipcode,
+                            text: details.officeAddress.address + " " + details.officeAddress.city + " " + details.officeAddress.province + " " + details.officeAddress.region + " " + details.officeAddress.zipcode,
                             alignment: "center"
                         },
                         ""
