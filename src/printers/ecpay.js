@@ -71,7 +71,7 @@ function getContent(details) {
                         },""
                     ],
                     ["",{
-                            text: 'Conveniece Fee: '
+                            text: 'Conviniece Fee: '
                         },
                         {
                             text: "₱"+details.con_fee,
