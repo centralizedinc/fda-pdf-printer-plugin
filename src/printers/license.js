@@ -61,7 +61,7 @@ function getContent(forms) {
             ""
           ],
           [{
-              text: details.addresses.office.address,
+              text: details.officeAddress.address,
               fontSize: 14,
               colSpan: 3,
               alignment: "center"
