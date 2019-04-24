@@ -9,7 +9,10 @@ function fillup(details) {
     console.log('get content ###### :', content);
     return {
         content: content,
-        pageSize: {width: 520, height: 390}
+        pageSize: {
+            width: 520,
+            height: 390
+        }
     };
 }
 /**
@@ -21,86 +24,82 @@ function getContent(details) {
     var content = [{
         layout: "noBorders",
         table: {
-            widths:["*"],
+            widths: ["*"],
             heights: ["*"],
             body: [
-                [
-                    {
-                        image: header.header
-                    }
-                ],
-                [                {
+                [{
+                    image: header.header
+                }],
+                [{
                     layout: "noBorders",
-                    table:{
-                        widths:[75, "*", "*",50],
+                    table: {
+                        widths: [75, "*", "*", 50],
                         heights: ['*'],
                         body: [
                             ["",
-                {
-                    text: 'Your Reference Number:',
-                    alignment: 'left'
-                },
-                {
-                    text: details.reference_number,
-                    alignment: 'left',
-                    style: "header"
-                },""
+                                {
+                                    text: 'Your Reference Number:',
+                                    alignment: 'left'
+                                },
+                                {
+                                    text: details.reference_number,
+                                    alignment: 'left',
+                                    style: "header"
+                                }, ""
                             ],
-                            ["",{
-                                text: 'Status:'
-                            },
-                            {
-                                text: details.status,
-                                alignment: "left"
-                            },""
-                        ],
-                        ["",{
-                            text: 'Expiration:'
-                        },
-                        {
-                            text: details.expiration,
-                            alignment: "left"
-                        },""
-                    ],
-                    ["",{
-                            text: 'Amount:'
-                        },
-                        {
-                            text: "₱"+details.amount,
-                            alignment: "left"
-                        },""
-                    ],
-                    ["",{
-                            text: 'Conviniece Fee: '
-                        },
-                        {
-                            text: "₱"+details.con_fee,
-                            alignment: "left"
-                        },""
-                    ],
-                    ["",{
-                            text: 'Total Amount Due: '
-                        },
-                        {
-                            text: "₱"+details.total,
-                            alignment: "left"
-                        },""
-                    ],
-                    ["",{
-                        qr: "Ref. No.: " + details.reference_number,
-                        fit: 70
-                      },"",""
-                    ]
+                            ["", {
+                                    text: 'Status:'
+                                },
+                                {
+                                    text: details.status,
+                                    alignment: "left"
+                                }, ""
+                            ],
+                            ["", {
+                                    text: 'Expiration:'
+                                },
+                                {
+                                    text: details.expiration,
+                                    alignment: "left"
+                                }, ""
+                            ],
+                            ["", {
+                                    text: 'Amount:'
+                                },
+                                {
+                                    text: "₱ " + (details.amount || "0.00"),
+                                    alignment: "left"
+                                }, ""
+                            ],
+                            ["", {
+                                    text: 'Conviniece Fee: '
+                                },
+                                {
+                                    text: "₱ " + (details.con_fee || "0.00"),
+                                    alignment: "left"
+                                }, ""
+                            ],
+                            ["", {
+                                    text: 'Total Amount Due: '
+                                },
+                                {
+                                    text: "₱ " + (details.total || "0.00"),
+                                    alignment: "left"
+                                }, ""
+                            ],
+                            ["", {
+                                qr: "Ref. No.: " + details.reference_number,
+                                fit: 70
+                            }, "", ""]
                         ]
                     }
-                }
-                ]
+                }]
             ]
         }
 
-        
 
-        
+
+
     }]
     return content;
 }
