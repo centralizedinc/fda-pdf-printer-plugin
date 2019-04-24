@@ -23,6 +23,14 @@ function getContent(forms) {
         }
     }
     _forms.forEach(details => {
+        var complete_address = "";
+
+        details.address_list.forEach(elem => {
+            if (elem.type === 0) {
+                complete_address = elem.address + " " + elem.city + " " + elem.province + " " + elem.region + " " + elem.zipcode
+            }
+        })
+
         content.push({
             layout: "noBorders",
             table: {
@@ -190,7 +198,7 @@ function getContent(forms) {
                             text: 'Office Address'
                         },
                         {
-                            text: details.officeAddress.address + " " + details.officeAddress.city + " " + details.officeAddress.province + " " + details.officeAddress.region + " " + details.officeAddress.zipcode,
+                            text: complete_address,
                             alignment: "center"
                         },
                         ""

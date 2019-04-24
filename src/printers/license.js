@@ -29,7 +29,16 @@ function fillup(details) {
 function getContent(forms) {
   var _forms = Array.isArray(forms) ? forms : [forms];
   var content = [];
+
   _forms.forEach(details => {
+    var address = "";
+
+    details.address_list.forEach(elem => {
+      if(elem.type === 0){
+        address = elem.address
+      }
+    })
+
     content.push({
       pageBreak: content.length >= 4 ? 'before' : '',
       text: "\n\n\n\n",
@@ -61,7 +70,7 @@ function getContent(forms) {
             ""
           ],
           [{
-              text: details.officeAddress.address,
+              text: address,
               fontSize: 14,
               colSpan: 3,
               alignment: "center"
