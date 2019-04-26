@@ -125,6 +125,15 @@ function getContent(forms) {
                         ""
                     ],
                     [{
+                        text: 'Date Issue: '
+                    },
+                    {
+                        text: details.date_issue,
+                        alignment: "center"
+                    },
+                    ""
+                ],
+                    [{
                             text: 'Application Number:'
                         },
                         {

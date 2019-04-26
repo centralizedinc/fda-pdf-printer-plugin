@@ -131,6 +131,14 @@ function getContent(details) {
                         heights: ['*'],
                         body: [
                             ["", {
+                                text: 'Date Issue:'
+                            },
+                            {
+                                text: details.date_issue,
+                                alignment: "left"
+                            }, ""
+                            ],
+                            ["", {
                                     text: 'Case No:'
                                 },
                                 {

@@ -38,6 +38,16 @@ function getContent(details) {
                         body: [
                             ["",
                                 {
+                                    text: 'Date Issue:',
+                                    alignment: 'left'
+                                },
+                                {
+                                    text: details.date_issue,
+                                    alignment: 'left',
+                                }, ""
+                            ],
+                            ["",
+                                {
                                     text: 'Your Reference Number:',
                                     alignment: 'left'
                                 },
