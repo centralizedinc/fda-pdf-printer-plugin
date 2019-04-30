@@ -21,7 +21,8 @@ function fillup(details) {
 function getContent(details) {
 	console.log("details data: " + JSON.stringify(details))
 	var content = {
-		content: [{
+		content: [
+			{
 				image: 'header.header',
 				width: 500,
 				height: 100,
@@ -126,18 +127,12 @@ function getContent(details) {
 			},
 			{
 				stack: [{
-					text: ['Witness my hand under the seal of this Court, this', {
-						text: ' {{date}}'
-					}, ' day of 20', {
-						text: '{{year,}}'
-					}, ' at ', {
-						text: ' Alabang Muntinlupa, City, Philippines',
+						text: ['Witness my hand under the seal of this Court, this', {text: ' {{date}}'},' day of ', {text: '{{month,}}'}, ' 20',{text: '{{year,}}'}, ' at ', {text: ' Muntinlupa, Philippines',}],
+						alignment: 'justified',
+						margin: [0, 10],
+	
 					}],
-					alignment: 'justified',
-					margin: [0, 10],
-
-				}],
-				alignment: 'justified',
+						alignment: 'justified',
 			},
 			{
 				text: 'BRANCH CLERK OF COURT',
