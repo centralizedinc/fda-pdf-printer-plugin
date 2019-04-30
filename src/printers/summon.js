@@ -22,8 +22,7 @@ function getContent(details) {
 	console.log("details data: " + JSON.stringify(details))
 	var content = [{
 				image: footer.header,
-				width: 500,
-				height: 100,
+				width: 600,
 				alignment: 'center'
 			},
 			{
@@ -36,7 +35,7 @@ function getContent(details) {
 						]
 					},
 					{
-						text: ['dated ', {text: '{{date, month, year}}'}, '\n submitted by the Regulatory Enforcement Unit']
+						text: ['dated' , {text: '{{date, month, year}}'}, '\n submitted by the Regulatory Enforcement Unit']
 					},
 				],
 				margin: [0, 20],
@@ -115,7 +114,7 @@ function getContent(details) {
 				text: '{{product description}}',
 			},
 			{
-				text: 'You are required to submit with your Response certified copies of documents as well as affidavits of any witness to stand as your evidence in this case. You must present the original document/s on the day of hearing. ',
+				text: 'You are required to submit your response, certified copies of documents as well as affidavits of any witness to stand as your evidence in this case. You must present the original document/s on the day of hearing. ',
 				alignment: 'justified',
 				margin: [0, 10],
 			},
@@ -134,14 +133,13 @@ function getContent(details) {
 						alignment: 'justified',
 			},
 			{
-				text: 'BRANCH CLERK OF COURT',
+				text: 'BRANCH CLERK OF COURT \n\n\n',
 				alignment: 'right',
 				margin: [0, 10]
 			},
 			{
 				image: footer.footer,
-				width: 500,
-				height: 100,
+				width: 600,
 				alignment: 'center'
 	}]
 	return content;
