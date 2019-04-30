@@ -20,10 +20,8 @@ function fillup(details) {
  */
 function getContent(details) {
 	console.log("details data: " + JSON.stringify(details))
-	var content = {
-		content: [
-			{
-				image: 'header.header',
+	var content = [{
+				image: footer.header,
 				width: 500,
 				height: 100,
 				alignment: 'center'
@@ -38,7 +36,7 @@ function getContent(details) {
 						]
 					},
 					{
-						text: ['dated 06 February 2019 ', '\n submitted by the Regulatory Enforcement Unit']
+						text: ['dated ', {text: '{{date, month, year}}'}, '\n submitted by the Regulatory Enforcement Unit']
 					},
 				],
 				margin: [0, 20],
@@ -53,7 +51,7 @@ function getContent(details) {
 					},
 					{
 						text: ['For: ', {
-							text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem'
+							text: '{{{Violated Laws, Rules and Regulations}}'
 						}],
 						alignment: 'justified',
 					}
@@ -75,7 +73,7 @@ function getContent(details) {
 					},
 					{
 						text: ['Respondent'],
-						style: 'caption',
+						fontSize: 10,
 						margin: [90, 0]
 					},
 					{
@@ -87,12 +85,13 @@ function getContent(details) {
 			},
 			{
 				text: 'SUMMONS',
-				style: 'title',
+				fontSize: 18,
+				bold: true,
 				alignment: 'center',
 			},
 			{
 				text: 'With PREVENTIVE MEASURE ORDER ',
-				style: 'subtitle',
+				fontSize: 12,
 				alignment: 'center',
 				margin: [0, 5],
 			},
@@ -140,29 +139,11 @@ function getContent(details) {
 				margin: [0, 10]
 			},
 			{
-				image: 'footer.footer',
+				image: footer.footer,
 				width: 500,
 				height: 100,
 				alignment: 'center'
-			}
-
-		],
-		styles: {
-			subtitle: {
-				fontSize: 12,
-			},
-			title: {
-				fontSize: 18,
-				bold: true,
-			},
-			caption: {
-				fontSize: 10,
-			}
-		},
-		defaultStyle: {
-			columnGap: 20
-		}
-	}
+	}]
 	return content;
 }
 
