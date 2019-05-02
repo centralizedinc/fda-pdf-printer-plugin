@@ -4,6 +4,7 @@ import Payment from "./printers/payment"
 import Receipt from "./printers/receipt"
 import Ecpay from "./printers/ecpay"
 import Summon from "./printers/summon"
+import Decision from ".printers/decision"
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -14,7 +15,8 @@ const printers = {
     PAY: Payment,
     RCPT: Receipt,
     ECPAY: Ecpay,
-    SUMMON: Summon
+    SUMMON: Summon,
+    DECISION: Decision
 }
 
 export default {
