@@ -44,13 +44,13 @@ function getContent(details) {
 				stack: [{
 						bold: 'true',
 						text: ['FDA CASE NO. ', {
-							text: '0000000'
+							text: '201900'+details.dtn
 						}, '\n\n'],
 						alignment: 'justified',
 					},
 					{
 						text: ['For: ', {
-							text: '{{{Violated Laws, Rules and Regulations}}'
+							text: details.laws_violated
 						}],
 						alignment: 'justified',
 					}
@@ -65,10 +65,10 @@ function getContent(details) {
 						],
 					},
 					{
-						text: ['Establishment Name'],
+						text: [details.establishment_name],
 					},
 					{
-						text: ['Establishment Address'],
+						text: [details.establishment_address + ', ' + details.establishment_city + ', ' + details.establishment_province + ', ' + details.establishment_region],
 					},
 					{
 						text: ['Respondent'],
@@ -101,13 +101,13 @@ function getContent(details) {
 			},
 			{
 				ol: [
-					'{{Violated Laws, Rules and Regulations}}',
+					details.laws_violated,
 				],
 				margin: [40, 10],
 			},
 			{
 				margin: [50, 10],
-				text: '{{products involved}}',
+				text: details.product_involved,
 			},
 			{
 				margin: [50, 10],

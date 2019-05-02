@@ -43,7 +43,7 @@ function getContent(details) {
 						bold: 'true'
 					},
 					{
-						text: ['FDA CASE NO. ', {text: '0000000'},'\n\n'],
+						text: ['FDA CASE NO. ', {text: '201900'+details.dtn},'\n\n'],
 						alignment: 'right',
 						bold: 'true',
 					}
@@ -55,10 +55,10 @@ function getContent(details) {
 							'Respondent Position'],
 					},
 					{
-						text: ['Establishment Name'],
+						text: [details.establishment_name],
 					},
 					{
-						text: ['Establishment Address'],
+						text: [details.establishment_address + ', ' + details.establishment_city + ', ' + details.establishment_province + ', ' + details.establishment_region],
 					},
 					{
 						text: ['Respondent/s'],
