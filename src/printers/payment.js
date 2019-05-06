@@ -23,13 +23,12 @@ function getContent(forms) {
         }
     }
     _forms.forEach(details => {
-        var complete_address = "";
-
-        details.address_list.forEach(elem => {
-            if (elem.type === 0) {
-                complete_address = elem.address + " " + elem.city + " " + elem.province + " " + elem.region + " " + elem.zipcode
-            }
-        })
+        var complete_address = details.officeAddress.address + " " + details.officeAddress.city + " " + details.officeAddress.province + " " + details.officeAddress.region + " " + details.officeAddress.zipcode;
+        // details.officeAddress.forEach(elem => {
+        //     if (elem.type === 0) {
+        //         complete_address = elem.address + " " + elem.city + " " + elem.province + " " + elem.region + " " + elem.zipcode
+        //     }
+        // })
 
         content.push({
             layout: "noBorders",
@@ -233,7 +232,7 @@ function getContent(forms) {
                             text: 'Designation:'
                         },
                         {
-                            text: details.formDetails.auth_officer.designation,
+                            text: details.formDetails.auth_officer.designation.name,
                             alignment: "center"
                         },
                         ""
@@ -261,7 +260,7 @@ function getContent(forms) {
                             text: 'Fullname:'
                         },
                         {
-                            text: qualified.lastname + ", " + qualified.firstname + " " + qualified.middlename,
+                            text: details.qualified.lastname + ", " + details.qualified.firstname + " " + details.qualified.middlename,
                             alignment: "center"
                         },
                         ""
@@ -270,7 +269,7 @@ function getContent(forms) {
                             text: 'Designation:'
                         },
                         {
-                            text: qualified.designation,
+                            text: details.qualified.designation.name,
                             alignment: "center"
                         },
                         ""
@@ -279,7 +278,7 @@ function getContent(forms) {
                             text: 'TIN: '
                         },
                         {
-                            text: qualified.tin,
+                            text: details.qualified.tin,
                             alignment: "center"
                         },
                         ""
@@ -288,7 +287,7 @@ function getContent(forms) {
                             text: 'Email:'
                         },
                         {
-                            text: qualified.email,
+                            text: details.qualified.email,
                             alignment: "center"
                         },
                         ""
@@ -297,7 +296,7 @@ function getContent(forms) {
                             text: 'Govt ID:'
                         },
                         {
-                            text: qualified.id_type,
+                            text: details.qualified.id_type.name,
                             alignment: "center"
                         },
                         ""
@@ -323,7 +322,7 @@ function getContent(forms) {
                             text: '# of years applied:'
                         },
                         {
-                            text: "₱ " + (details.paymentDetails.yearsApplied || "0.00"),
+                            text: details.paymentDetails.yearsApplied + " years",
                             alignment: "center"
                         },
                         ""
