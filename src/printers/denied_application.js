@@ -3,7 +3,7 @@ const official = require("../templates/denied/official_denied").template;
 
 /**
  *
- * @param {LicenseModel} details
+ * @param {Object} details
  * @returns {Object} document
  */
 function fillup(details) {

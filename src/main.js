@@ -1,5 +1,6 @@
 import License from "./printers/license"
-import DeniedLicense from "./printers/denied_license"
+import Certificate from "./printers/certificate"
+import DeniedApplication from "./printers/denied_application"
 import Payment from "./printers/payment"
 import Receipt from "./printers/receipt"
 import Ecpay from "./printers/ecpay"
@@ -11,12 +12,13 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const printers = {
     LIC: License,
-    DENIED_LIC: DeniedLicense,
+    DENIED: DeniedApplication,
     PAY: Payment,
     RCPT: Receipt,
     ECPAY: Ecpay,
     SUMMON: Summon,
-    DECISION: Decision
+    DECISION: Decision,
+    CERT: Certificate
 }
 
 export default {
