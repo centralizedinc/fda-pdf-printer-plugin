@@ -52,7 +52,7 @@ function getContent(forms) {
               alignment: 'left'
             },
             {
-              text: 'FR-742107',
+              text: details.certificate_no,
               alignment: 'left',
               // fontSize: 12
             }
@@ -66,7 +66,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Pearl Tapioca',
+            text: details.product_name,
             alignment: 'left'
           }],
           [{
@@ -77,7 +77,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Goat Poop',
+            text: details.active_ingredients,
             alignment: 'left'
           }],
           [{
@@ -88,7 +88,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Food Consumption',
+            text: details.intended_use,
             alignment: 'left'
           }],
           [{
@@ -99,7 +99,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Plastic Packaging',
+            text: details.packaging,
             alignment: 'left'
           }],
           [{
@@ -110,7 +110,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Mr. Wee Tea',
+            text: details.manufacturer,
             alignment: 'left'
           }],
           [{
@@ -121,7 +121,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Foto Tea Q',
+            text: details.repacker_source,
             alignment: 'left'
           }],
           [{
@@ -143,7 +143,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: 'Chz Qui',
+            text: details.client_name,
             alignment: 'left'
           }],
           [{
@@ -154,7 +154,7 @@ function getContent(forms) {
             style: '',
             alignment: 'left'
           }, {
-            text: '2320 YMC Bldg ',
+            text: details.client_address,
             alignment: 'left'
           }],
         ]
@@ -164,7 +164,7 @@ function getContent(forms) {
     content.push({
       margin: [315, 127, 0, 0],
       columns: [{
-        text: "June 1, 2018",
+        text: details.validity,
         fontSize: 10
       }]
     });
@@ -172,7 +172,7 @@ function getContent(forms) {
     content.push({
       margin: [315, 113, 0, 40],
       columns: [{
-        text: "June 1, 2018",
+        text: details.date_approved,
         fontSize: 10
       }]
     });
