@@ -23,13 +23,7 @@ function getContent(forms) {
         }
     }
     _forms.forEach(details => {
-        var complete_address = details.officeAddress.address + " " + details.officeAddress.city + " " + details.officeAddress.province + " " + details.officeAddress.region + " " + details.officeAddress.zipcode;
-        // details.officeAddress.forEach(elem => {
-        //     if (elem.type === 0) {
-        //         complete_address = elem.address + " " + elem.city + " " + elem.province + " " + elem.region + " " + elem.zipcode
-        //     }
-        // })
-
+        // Headers
         content.push({
             layout: "noBorders",
             table: {
@@ -104,203 +98,235 @@ function getContent(forms) {
                         }
                     ],
                     // order of payment
-                    [
-                        "",
-                        {
-                            text: 'Order of Payment',
-                            // fontSize: 28,
-                            // colSpan: 3,
+                    // [
+                    //     "",
+                    //     {
+                    //         text: 'Order of Payment',
+                    //         // fontSize: 28,
+                    //         // colSpan: 3,
+                    //         alignment: "center",
+                    //         style: "header"
+                    //     },
+                    //     ""
+                    // ]
+                ]
+            }
+        });
+        // Application Details
+        content.push({
+            layout: "noBorders",
+            table: {
+                layout: "noBorders",
+                widths: [100, "*"],
+                heights: [30, "*"],
+                body: [
+                    [{
+                            text: 'Application Details',
                             alignment: "center",
-                            style: "header"
+                            colSpan: 2
                         },
                         ""
                     ],
-                    // gen info
-                    ["",
-                        {
-                            text: 'General Information',
-                            alignment: "center",
-                        },
-                        ""
+                    ["Date: ",
+                        details.formDetails.date_created
                     ],
-                    [{
-                        text: 'Date Issue: '
-                    },
-                    {
-                        text: details.date_issue,
-                        alignment: "center"
-                    },
-                    ""
-                ],
-                    [{
-                            text: 'Application Number:'
-                        },
-                        {
-                            text: details.formDetails.case_no,
-                            alignment: "center"
-                        },
-                        ""
+                    ["Type: ",
+                        details.formDetails.application_type
                     ],
-                    [{
-                            text: 'Product Center:'
-                        },
-                        {
-                            text: details.formDetails.general_info.product_type,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Application Type:'
-                        },
-                        {
-                            text: details.formDetails.application_type,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Primary Activity:'
-                        },
-                        {
-                            text: details.formDetails.general_info.primary_activity,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    // Establishment Information
-                    ["",
-                        {
-                            text: 'Establishment Information',
-                            alignment: "center",
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Company Name:'
-                        }, {
-                            text: details.formDetails.estab_details.establishment_name,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Owner:'
-                        },
-                        {
-                            text: details.formDetails.estab_details.establishment_owner,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Declared Capital: '
-                        },
-                        {
-                            text: details.formDetails.general_info.declared_capital,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Office Address'
-                        },
-                        {
-                            text: complete_address,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    // Details of the Approving Authority
-                    ["",
-                        {
-                            text: 'Details of the Approving Authority',
-                            alignment: "center",
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Fullname:'
-                        },
-                        {
-                            text: details.formDetails.auth_officer.lastname + ", " + details.formDetails.auth_officer.firstname + " " + details.formDetails.auth_officer.middlename,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Designation:'
-                        },
-                        {
-                            text: details.formDetails.auth_officer.designation.name,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Mailing Address:'
-                        },
-                        {
-                            text: details.formDetails.auth_officer.mail_add.address + " " + details.formDetails.auth_officer.mail_add.city + " " + details.formDetails.auth_officer.mail_add.province + " " + details.formDetails.auth_officer.mail_add.region + " " + details.formDetails.auth_officer.mail_add.zipcode,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
+                    ["Case No.: ",
+                        details.formDetails.case_no
+                    ]
+                ]
+            }
+        })
 
+        if (details.formDetails.case_type === 0) {
+            // General Info
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'General Information',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Product Center:',
+                            details.formDetails.general_info.product_type
+                        ],
+                        ['Primary Activity:',
+                            details.formDetails.general_info.primary_activity
+                        ]
+                    ]
+                }
+            })
+            // Establishment Information
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'Establishment Information',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Company Name: ',
+                            details.formDetails.estab_details.establishment_name
+                        ],
+                        ['Owner: ',
+                            details.formDetails.estab_details.establishment_owner
+                        ],
+                        ['Declared Capital: ',
+                            details.formDetails.general_info.declared_capital
+                        ],
+                        ['Office Address',
+                            details.formDetails.addresses.office.address + " " + details.formDetails.addresses.office.city + " " + details.formDetails.addresses.office.province + " " + details.formDetails.addresses.office.region + " " + details.formDetails.addresses.office.zipcode
+                        ]
+                    ]
+                }
+            })
+            // Details of the Approving Authority
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'Details of the Approving Authority',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Fullname:',
+                            details.formDetails.auth_officer.lastname + ", " + details.formDetails.auth_officer.firstname + " " + details.formDetails.auth_officer.middlename
+                        ],
+                        ['Designation:',
+                            details.formDetails.auth_officer.designation
+                        ],
+                        ['Mailing Address:',
+                            details.formDetails.auth_officer.mail_add.address + " " + details.formDetails.auth_officer.mail_add.city + " " + details.formDetails.auth_officer.mail_add.province + " " + details.formDetails.auth_officer.mail_add.region + " " + details.formDetails.auth_officer.mail_add.zipcode
+                        ]
+                    ]
+                }
+            })
+            // Details of the Qualified Personnel
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'Details of the Qualified Personnel',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Fullname:',
+                            qualified.lastname + ", " + qualified.firstname + " " + qualified.middlename
+                        ],
+                        ['Designation:',
+                            qualified.designation
+                        ],
+                        ['TIN: ',
+                            qualified.tin
+                        ],
+                        ['Email: ',
+                            qualified.email
+                        ],
+                        ['Govt ID:',
+                            qualified.id_type
+                        ]
+                    ]
+                }
+            })
+        } else if (details.formDetails.case_type === 1) {
+            // Product Details
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'Product Details',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Product Type:',
+                            details.formDetails.food_product.type
+                        ],
+                        ['Categorization:',
+                            details.formDetails.food_product.categorization
+                        ],
+                        ['Brand Name:',
+                            details.formDetails.food_product.brand_name
+                        ],
+                        ['Product Name:',
+                            details.formDetails.food_product.product_name
+                        ],
+                        ['Company Name:',
+                            details.formDetails.food_product.company
+                        ]
+                    ]
+                }
+            })
 
-                    // Details of the Qalified Personnel
-                    ["",
-                        {
-                            text: 'Details of the Qalified Personnel',
-                            alignment: "center",
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Fullname:'
-                        },
-                        {
-                            text: details.qualified.lastname + ", " + details.qualified.firstname + " " + details.qualified.middlename,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Designation:'
-                        },
-                        {
-                            text: details.qualified.designation.name,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'TIN: '
-                        },
-                        {
-                            text: details.qualified.tin,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Email:'
-                        },
-                        {
-                            text: details.qualified.email,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
-                    [{
-                            text: 'Govt ID:'
-                        },
-                        {
-                            text: details.qualified.id_type.name,
-                            alignment: "center"
-                        },
-                        ""
-                    ],
+            // Establishment Info
+            content.push({
+                layout: "noBorders",
+                table: {
+                    layout: "noBorders",
+                    widths: [100, "*"],
+                    heights: [30, "*"],
+                    body: [
+                        [{
+                                text: 'Establishment Information',
+                                alignment: "center",
+                                colSpan: 2
+                            },
+                            ""
+                        ],
+                        ['Activity:',
+                            details.formDetails.establishment_info.activity
+                        ],
+                        ['Source Type:',
+                            details.formDetails.establishment_info.type
+                        ],
+                        ['Country of Origin:',
+                            details.formDetails.establishment_info.origin_country
+                        ]
+                    ]
+                }
+            })
+        }
+
+        // Payment Details
+        content.push({
+            layout: "noBorders",
+            table: {
+                layout: "noBorders",
+                widths: [160, "*", 160],
+                heights: [80, 20, "*"],
+                body: [
                     // Payment Details
                     ["",
                         {
@@ -313,7 +339,7 @@ function getContent(forms) {
                             text: 'Application Fee:'
                         },
                         {
-                            text: "₱ " + (details.paymentDetails.fee || "0.00"),
+                            text: "₱" + details.paymentDetails.fee,
                             alignment: "center"
                         },
                         ""
@@ -322,7 +348,7 @@ function getContent(forms) {
                             text: '# of years applied:'
                         },
                         {
-                            text: details.paymentDetails.yearsApplied + " years",
+                            text: "₱" + details.paymentDetails.yearsApplied,
                             alignment: "center"
                         },
                         ""
@@ -331,7 +357,7 @@ function getContent(forms) {
                             text: 'Surcharge: '
                         },
                         {
-                            text: "₱ " + (details.paymentDetails.surcharge || "0.00"),
+                            text: "₱" + details.paymentDetails.surcharge,
                             alignment: "center"
                         },
                         ""
@@ -340,7 +366,7 @@ function getContent(forms) {
                             text: 'Legal Research Fund (LRF):'
                         },
                         {
-                            text: "₱ " + (details.paymentDetails.lrf || "0.00"),
+                            text: "₱" + details.paymentDetails.lrf,
                             alignment: "center"
                         },
                         ""
@@ -349,14 +375,14 @@ function getContent(forms) {
                             text: 'Total Payment Due:'
                         },
                         {
-                            text: "₱ " + (details.paymentDetails.total || "0.00"),
+                            text: "₱" + details.paymentDetails.total,
                             alignment: "center"
                         },
                         ""
                     ]
                 ]
             }
-        });
+        })
     })
     return content;
 }
