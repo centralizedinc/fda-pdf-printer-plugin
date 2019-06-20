@@ -16,13 +16,13 @@ function fillup(details) {
 function getContent(forms) {
     var _forms = Array.isArray(forms) ? forms : [forms];
     var content = [];
-    var qualified = {}
-    if (_forms.qualified !== undefined) {
-        for (var i = 0; i === 0;) {
-            qualified = _forms.qualified[i]
-        }
-    }
     _forms.forEach(details => {
+        var qualified = {}
+        if (details.qualified !== undefined) {
+            for (var i = 0; i === 0;) {
+                qualified = details.qualified[i]
+            }
+        }
         // Headers
         content.push({
             layout: "noBorders",
@@ -128,13 +128,13 @@ function getContent(forms) {
                         ""
                     ],
                     ["Date: ",
-                        details.formDetails.date_created
+                        details.formDetails.date_created || ""
                     ],
                     ["Type: ",
-                        details.formDetails.application_type
+                        details.formDetails.application_type || ""
                     ],
                     ["Case No.: ",
-                        details.formDetails.case_no
+                        details.formDetails.case_no || ""
                     ]
                 ]
             }
@@ -157,10 +157,10 @@ function getContent(forms) {
                             ""
                         ],
                         ['Product Center:',
-                            details.formDetails.general_info.product_type
+                            details.formDetails.general_info.product_type || ""
                         ],
                         ['Primary Activity:',
-                            details.formDetails.general_info.primary_activity
+                            details.formDetails.general_info.primary_activity || ""
                         ]
                     ]
                 }
@@ -181,13 +181,13 @@ function getContent(forms) {
                             ""
                         ],
                         ['Company Name: ',
-                            details.formDetails.estab_details.establishment_name
+                            details.formDetails.estab_details.establishment_name || ""
                         ],
                         ['Owner: ',
-                            details.formDetails.estab_details.establishment_owner
+                            details.formDetails.estab_details.establishment_owner || ""
                         ],
                         ['Declared Capital: ',
-                            details.formDetails.general_info.declared_capital
+                            details.formDetails.general_info.declared_capital || ""
                         ],
                         ['Office Address',
                             details.formDetails.addresses.office.address + " " + details.formDetails.addresses.office.city + " " + details.formDetails.addresses.office.province + " " + details.formDetails.addresses.office.region + " " + details.formDetails.addresses.office.zipcode
@@ -214,7 +214,7 @@ function getContent(forms) {
                             details.formDetails.auth_officer.lastname + ", " + details.formDetails.auth_officer.firstname + " " + details.formDetails.auth_officer.middlename
                         ],
                         ['Designation:',
-                            details.formDetails.auth_officer.designation
+                            details.formDetails.auth_officer.designation || ""
                         ],
                         ['Mailing Address:',
                             details.formDetails.auth_officer.mail_add.address + " " + details.formDetails.auth_officer.mail_add.city + " " + details.formDetails.auth_officer.mail_add.province + " " + details.formDetails.auth_officer.mail_add.region + " " + details.formDetails.auth_officer.mail_add.zipcode
@@ -241,16 +241,16 @@ function getContent(forms) {
                             qualified.lastname + ", " + qualified.firstname + " " + qualified.middlename
                         ],
                         ['Designation:',
-                            qualified.designation
+                            qualified.designation || ""
                         ],
                         ['TIN: ',
-                            qualified.tin
+                            qualified.tin || ""
                         ],
                         ['Email: ',
-                            qualified.email
+                            qualified.email || ""
                         ],
                         ['Govt ID:',
-                            qualified.id_type
+                            qualified.id_type || ""
                         ]
                     ]
                 }
@@ -272,19 +272,19 @@ function getContent(forms) {
                             ""
                         ],
                         ['Product Type:',
-                            details.formDetails.food_product.type
+                            details.formDetails.food_product.type || ""
                         ],
                         ['Categorization:',
-                            details.formDetails.food_product.categorization
+                            details.formDetails.food_product.categorization || ""
                         ],
                         ['Brand Name:',
-                            details.formDetails.food_product.brand_name
+                            details.formDetails.food_product.brand_name || ""
                         ],
                         ['Product Name:',
-                            details.formDetails.food_product.product_name
+                            details.formDetails.food_product.product_name || ""
                         ],
                         ['Company Name:',
-                            details.formDetails.food_product.company
+                            details.formDetails.food_product.company || ""
                         ]
                     ]
                 }
@@ -306,13 +306,13 @@ function getContent(forms) {
                             ""
                         ],
                         ['Activity:',
-                            details.formDetails.establishment_info.activity
+                            details.formDetails.establishment_info.activity || ""
                         ],
                         ['Source Type:',
-                            details.formDetails.establishment_info.type
+                            details.formDetails.establishment_info.type || ""
                         ],
                         ['Country of Origin:',
-                            details.formDetails.establishment_info.origin_country
+                            details.formDetails.establishment_info.origin_country || ""
                         ]
                     ]
                 }
