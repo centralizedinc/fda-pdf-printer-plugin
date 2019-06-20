@@ -15,6 +15,7 @@ function fillup(details) {
  */
 function getContent(forms) {
     var _forms = Array.isArray(forms) ? forms : [forms];
+    console.log('getContent PAY _forms :', _forms);
     var content = [];
     _forms.forEach(details => {
         var qualified = {}
@@ -117,9 +118,10 @@ function getContent(forms) {
             layout: "noBorders",
             table: {
                 layout: "noBorders",
-                widths: [100, "*"],
-                heights: [30, "*"],
+                widths: [120, "*"],
+                heights: [30, 20, "*"],
                 body: [
+                    ["", ""],
                     [{
                             text: 'Application Details',
                             alignment: "center",
@@ -146,9 +148,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'General Information',
                                 alignment: "center",
@@ -170,9 +173,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'Establishment Information',
                                 alignment: "center",
@@ -200,9 +204,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'Details of the Approving Authority',
                                 alignment: "center",
@@ -227,9 +232,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'Details of the Qualified Personnel',
                                 alignment: "center",
@@ -261,9 +267,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'Product Details',
                                 alignment: "center",
@@ -295,9 +302,10 @@ function getContent(forms) {
                 layout: "noBorders",
                 table: {
                     layout: "noBorders",
-                    widths: [100, "*"],
-                    heights: [30, "*"],
+                    widths: [120, "*"],
+                    heights: [30, 20, "*"],
                     body: [
+                        ["", ""],
                         [{
                                 text: 'Establishment Information',
                                 alignment: "center",
@@ -324,61 +332,32 @@ function getContent(forms) {
             layout: "noBorders",
             table: {
                 layout: "noBorders",
-                widths: [160, "*", 160],
-                heights: [80, 20, "*"],
+                widths: [120, "*"],
+                heights: [30, 20, "*"],
                 body: [
+                    ["", ""],
                     // Payment Details
-                    ["",
-                        {
+                    [{
                             text: 'Payment Details',
                             alignment: "center",
+                            colSpan: 2
                         },
                         ""
                     ],
-                    [{
-                            text: 'Application Fee:'
-                        },
-                        {
-                            text: "₱" + details.paymentDetails.fee,
-                            alignment: "center"
-                        },
-                        ""
+                    ['Application Fee: ',
+                        "₱ " + (details.paymentDetails.fee || "0.00")
                     ],
-                    [{
-                            text: '# of years applied:'
-                        },
-                        {
-                            text: "₱" + details.paymentDetails.yearsApplied,
-                            alignment: "center"
-                        },
-                        ""
+                    ['# of years applied: ',
+                        (details.paymentDetails.yearsApplied || 0) + " years"
                     ],
-                    [{
-                            text: 'Surcharge: '
-                        },
-                        {
-                            text: "₱" + details.paymentDetails.surcharge,
-                            alignment: "center"
-                        },
-                        ""
+                    ['Surcharge: ',
+                        "₱ " + (details.paymentDetails.surcharge || "0.00")
                     ],
-                    [{
-                            text: 'Legal Research Fund (LRF):'
-                        },
-                        {
-                            text: "₱" + details.paymentDetails.lrf,
-                            alignment: "center"
-                        },
-                        ""
+                    ['Legal Research Fund (LRF): ',
+                        "₱ " + (details.paymentDetails.lrf || "0.00")
                     ],
-                    [{
-                            text: 'Total Payment Due:'
-                        },
-                        {
-                            text: "₱" + details.paymentDetails.total,
-                            alignment: "center"
-                        },
-                        ""
+                    ['Total Payment Due: ',
+                        "₱ " + (details.paymentDetails.total || "0.00")
                     ]
                 ]
             }
