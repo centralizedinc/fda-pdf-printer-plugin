@@ -30,6 +30,8 @@ function getContent(forms) {
   var _forms = Array.isArray(forms) ? forms : [forms];
   var content = [];
   _forms.forEach(details => {
+    var qr_code = new Buffer(details.case_no, "base64").toString()
+    var qr_url = `https://fda-client-portal.herokuapp.com/#/result/certificate/${qr_code}`
     content.push({
       pageBreak: content.length >= 4 ? 'before' : '',
       text: "\n\n\n\n",
@@ -39,7 +41,7 @@ function getContent(forms) {
       margin: [0, 145, 0, 0],
       fontSize: 10,
       table: {
-        widths: ['*', 12, '*'],
+        widths: ['*', 3, 120, "*"],
         heights: [14],
         body: [
           [{
@@ -55,6 +57,12 @@ function getContent(forms) {
               text: details.certificate_no,
               alignment: 'left',
               // fontSize: 12
+            },
+            {
+              qr: qr_url,
+              fit: 70,
+              alignment: "right",
+              rowSpan: 4
             }
           ],
 
@@ -68,7 +76,7 @@ function getContent(forms) {
           }, {
             text: details.product_name,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -79,7 +87,7 @@ function getContent(forms) {
           }, {
             text: details.active_ingredients,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -90,7 +98,7 @@ function getContent(forms) {
           }, {
             text: details.intended_use,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -101,7 +109,7 @@ function getContent(forms) {
           }, {
             text: details.packaging,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -112,7 +120,7 @@ function getContent(forms) {
           }, {
             text: details.manufacturer,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -123,7 +131,7 @@ function getContent(forms) {
           }, {
             text: details.repacker_source,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -134,7 +142,7 @@ function getContent(forms) {
           }, {
             text: ' \n',
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -145,7 +153,7 @@ function getContent(forms) {
           }, {
             text: details.client_name,
             alignment: 'left'
-          }],
+          }, ''],
           [{
             text: '',
             alignment: 'left'
@@ -156,7 +164,7 @@ function getContent(forms) {
           }, {
             text: details.client_address,
             alignment: 'left'
-          }],
+          }, ''],
         ]
       }
     });

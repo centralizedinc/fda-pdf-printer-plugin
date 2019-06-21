@@ -32,9 +32,10 @@ function getContent(forms) {
 
   _forms.forEach(details => {
     var address = "";
-
+    var qr_code = new Buffer(details.case_no, "base64").toString()
+    var qr_url = `https://fda-client-portal.herokuapp.com/#/result/license/${qr_code}`
     details.address_list.forEach(elem => {
-      if(elem.type === 0){
+      if (elem.type === 0) {
         address = elem.address
       }
     })
@@ -82,7 +83,7 @@ function getContent(forms) {
               text: ""
             },
             {
-              qr: "Testing...",
+              qr: qr_url,
               fit: 70,
               alignment: "left",
               rowSpan: 4
