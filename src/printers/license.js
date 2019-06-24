@@ -32,7 +32,7 @@ function getContent(forms) {
 
   _forms.forEach(details => {
     var address = "";
-    var qr_code = new Buffer(details.case_no, "base64").toString()
+    var qr_code = new Buffer(details.case_no).toString("base64")
     var qr_url = `https://fda-client-portal.herokuapp.com/#/result/license/${qr_code}`
     details.address_list.forEach(elem => {
       if (elem.type === 0) {

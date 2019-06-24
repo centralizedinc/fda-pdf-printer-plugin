@@ -30,7 +30,7 @@ function getContent(forms) {
   var _forms = Array.isArray(forms) ? forms : [forms];
   var content = [];
   _forms.forEach(details => {
-    var qr_code = new Buffer(details.case_no, "base64").toString()
+    var qr_code = new Buffer(details.case_no).toString("base64")
     var qr_url = `https://fda-client-portal.herokuapp.com/#/result/certificate/${qr_code}`
     content.push({
       pageBreak: content.length >= 4 ? 'before' : '',
