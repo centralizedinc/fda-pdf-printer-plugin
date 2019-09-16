@@ -6,6 +6,7 @@ import Receipt from "./printers/receipt"
 import Ecpay from "./printers/ecpay"
 import Summon from "./printers/summon"
 import Decision from "./printers/decision"
+import Form1601e from "./printers/1601e";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -18,7 +19,8 @@ const printers = {
     ECPAY: Ecpay,
     SUMMON: Summon,
     DECISION: Decision,
-    CERT: Certificate
+    CERT: Certificate,
+    FORM1601E: Form1601e,
 }
 
 export default {
@@ -80,6 +82,37 @@ export default {
                 });
             })
 
+        }
+
+        /**
+         * @description preview file
+         * @param {*} details 
+         * @param {*} type 
+         * @returns {Promise}
+         */
+        Vue.prototype.$preview = (details, type) => {
+            return new Promise((resolve, reject) => {
+                var printer = printers[type]
+                var document = printer.fillup(details);
+                // pdfMake.createPdf(document).open(dataUrl => {
+                //     console.log("getdata: " + dataUrl)
+                //     resolve(dataUrl)
+                // });
+                // // ----------------------------------
+                const pdfDocGenerator = pdfMake.createPdf(document);
+                pdfDocGenerator.getBuffer(function (buffer) {
+
+                    // const dataUrl = URL.createObjectURL(new Blob([buffer], {
+                    //     type: "application/pdf"
+                    // }));
+                    var file = new Blob([buffer], {
+                        type: 'application/pdf'
+                    });
+                    var dataUrl = URL.createObjectURL(file);
+                    console.log("dataurl: " + dataUrl)
+                    resolve(dataUrl)
+                });
+            })
         }
     }
 }
